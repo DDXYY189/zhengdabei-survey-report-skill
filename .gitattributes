@@ -1,0 +1,22 @@
+# 统一换行符为 LF，避免跨平台行尾差异
+* text=auto eol=lf
+
+# Markdown 与文档
+*.md text
+*.markdown text
+
+# 纯文本
+*.txt text
+
+# Office / 二进制
+*.docx binary
+*.pdf binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.xlsx binary
+
+# Shell / 脚本
+*.sh text eol=lf
+*.ps1 text eol=crlf

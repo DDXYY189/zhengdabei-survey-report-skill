@@ -1,0 +1,33 @@
+# ===== 通用 =====
+*.log
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ===== 编辑器 / 操作系统 =====
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ===== 系统临时文件 =====
+*.tmp
+*.cache
+
+# ===== Node / Python（如有示例代码时解除注释）=====
+# node_modules/
+# __pycache__/
+# *.pyc
+# .venv/
+# venv/
+
+# ===== 数据集与隐私（示例数据按需保留） =====
+# 若涉及真实问卷/用户数据，请勿提交：
+sample_raw_data.xlsx
+survey_data/
+*.csv.orig
+
+# ===== 本地安装副本 =====
+# 若仓库同时包含可安装副本，可忽略以下占位：
+.trae/skills/*/SKILL.md.orig

@@ -1,5 +1,6 @@
 $ErrorActionPreference = 'Stop'
-$skill = Get-Content -Raw 'skills/zhengdabei-survey-report/SKILL.md'
+$skill = Get-Content -Raw -Encoding utf8 'skills/zhengdabei-survey-report/SKILL.md'
+$readme = Get-Content -Raw -Encoding utf8 'README.md'
 
 function Require-Pattern([string]$label, [string]$pattern) {
   if ($skill -notmatch $pattern) { throw "MISSING: $label" }
@@ -17,6 +18,21 @@ Require-Pattern 'simulation boundary' '没有真实数据.*最多推进|模拟�
 Require-Pattern 'slides boundary' 'PPT.*答辩|演示文稿工作流'
 Require-Pattern 'capability modules' '能力模块|一人兼任'
 Require-Pattern 'seven-dimension audit' '研究选题.*文献研究.*方案设计|七维'
+
+function Require-Readme([string]$label, [string]$pattern) {
+  if ($readme -notmatch $pattern) { throw "README MISSING: $label" }
+}
+
+Require-Readme 'purpose and boundaries' '适用范围|不默认负责|不包含'
+Require-Readme 'installation' '安装|git clone|复制'
+Require-Readme 'discovery verification' '发现|识别|检查'
+Require-Readme 'startup prompt' '启动|Intake|current_stage'
+Require-Readme 'workflow' '工作流|状态机|提交审计'
+Require-Readme 'input checklist' '输入材料|问卷|数据|规则'
+Require-Readme 'output contract' '输出|建模方案|pass.*conditional.*blocked'
+Require-Readme 'compliance' 'AI|隐私|匿名|地图|查重'
+Require-Readme 'troubleshooting' '排错|常见问题|故障'
+Require-Readme 'versioning' '版本|更新|CHANGELOG'
 
 foreach ($path in @(
   'skills/zhengdabei-survey-report/references/method-routing.md',

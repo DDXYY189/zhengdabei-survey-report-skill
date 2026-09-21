@@ -44,6 +44,8 @@ Copy-Item -Recurse -Force `
 <skill-root>/zhengdabei-survey-report/references/method-routing.md
 <skill-root>/zhengdabei-survey-report/references/quality-gates.md
 <skill-root>/zhengdabei-survey-report/references/report-templates.md
+<skill-root>/zhengdabei-survey-report/references/text-analysis.md
+<skill-root>/zhengdabei-survey-report/references/visualization-guide.md
 ```
 
 兼容其他 Agent 运行时时，使用其文档规定的用户 Skill 目录；不要只复制 `SKILL.md`，否则参考文件链接会失效。
@@ -209,6 +211,14 @@ intake
 
 具体的输入要求、诊断方法和失败条件见 [方法路由](skills/zhengdabei-survey-report/references/method-routing.md)。
 
+### 文本分析和词云是条件能力
+
+不是所有选题都需要词云。只有在存在真实、相关、可追溯且合规的开放题回答、访谈记录、评论或其他文本语料时，才启用文本分析；只有结构化问卷而没有文本字段时，应明确记录“词云不适用”，不要为了增加图表而制作词云。
+
+启用后应按“来源与授权 → 抽样与去重 → 清洗分词 → 词频/TF-IDF/n-gram → 词云入口图 → 主题/情感/共现分析 → 分群比较 → 问卷或访谈验证 → 行动建议”推进。词云只能说明高频或高权重词，不能单独证明需求强度、情绪、因果关系或策略优先级。每张词云都要写明语料来源、时间范围、有效文本数、清洗规则、分词/词典、停用词和权重口径。
+
+完整判断表和报告字段见 [文本分析指南](skills/zhengdabei-survey-report/references/text-analysis.md)；图表类型选择、图号和来源标注、坐标轴及可读性检查见 [可视化指南](skills/zhengdabei-survey-report/references/visualization-guide.md)。
+
 ## 7. 必须遵守的注意事项
 
 ### 数据真实性
@@ -236,6 +246,10 @@ AI 可以协助研究设计、代码解释、语言润色和证据整理，但�
 - 原始数据脱敏后再共享，删除姓名、电话、学号等直接标识；
 - 评论、访谈和图片材料需保留来源与授权依据。
 
+### 报告到 PPT/答辩的交接
+
+本 Skill 不默认生成 PPT 或答辩稿，但在报告完成后可以输出“交接包”：核心研究问题、最重要的三条发现及证据图表、最重要的三条建议及责任主体、模型的一句话解释、样本与方法限制、评委可能追问和不能过度声称的结论。交接包只能从已通过审计的报告和数据中提取，不得把探索性结果包装成确定性结论。
+
 ## 8. 常见问题与排错
 
 ### Skill 没有被识别
@@ -244,7 +258,7 @@ AI 可以协助研究设计、代码解释、语言润色和证据整理，但�
 
 ### 参考文件找不到
 
-不要只复制 `SKILL.md`。必须保留同目录下的 `references/method-routing.md`、`quality-gates.md` 和 `report-templates.md`。
+不要只复制 `SKILL.md`。必须保留同目录下的 `references/method-routing.md`、`quality-gates.md`、`report-templates.md`、`text-analysis.md` 和 `visualization-guide.md`。
 
 ### Agent 一开始就写完整报告
 
@@ -270,7 +284,9 @@ skills/zhengdabei-survey-report/
 └── references/
     ├── method-routing.md            # 方法选择、输入和失败条件
     ├── quality-gates.md              # 研究、模型和提交审计
-    └── report-templates.md           # Intake、方案、结果和建议模板
+    ├── report-templates.md           # Intake、方案、结果和建议模板
+    ├── text-analysis.md              # 条件式文本分析与词云审计
+    └── visualization-guide.md        # 图表选择和可视化审计
 
 tests/
 ├── skill_contract.ps1                # 结构契约检查
@@ -313,7 +329,9 @@ PASS: skill contract
 
 ## 11. 版本说明
 
-当前版本：`v1.3.1`。
+当前版本：`v1.4.0`。
+
+- `v1.4.0`：增加条件式文本分析与词云流程、图表选择和可视化审计、报告到 PPT/答辩的交接包；
 
 - `v1.3.1`：重写 README，补充安装、启动、排错、更新和贡献说明；
 

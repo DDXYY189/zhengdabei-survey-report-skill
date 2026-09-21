@@ -68,6 +68,8 @@ description: Use when a user has a confirmed topic and needs to design, analyze,
 - 产品与策略：IPA、KANO、联合分析、漏斗/关联规则、SWOT/PEST、情景和敏感性；
 - 产业效率与趋势：DEA、投入产出、时间序列或预测。
 
+文本分析、词云和高级可视化均为**条件能力**，不是每个选题的必做项。只有在存在真实、相关、可追溯且合规的文本或图表任务时才启用。只有结构化问卷而没有开放题/评论时，不制作词云；词云只能作为高频词入口图，不能单独作为需求、情绪、因果或策略结论。详细流程见 `references/text-analysis.md`，图表选择和审计见 `references/visualization-guide.md`。
+
 ### 建模方案固定格式
 
 每次给出 2–4 个可比较方案，每个方案必须写：
@@ -106,6 +108,8 @@ description: Use when a user has a confirmed topic and needs to design, analyze,
 
 结论使用 `研究问题 + 数据/表图 + 结果 + 限制`；建议使用 `证据 → 责任主体 → 具体动作 → 资源/前提 → 时间 → 衡量指标`。禁止“加强宣传、提高质量、扩大投入”等无对象、无步骤、无指标的空话。
 
+报告通过提交审计后，可按需生成“报告到 PPT/答辩交接包”：提取核心研究问题、最重要的三条发现及证据图表、最重要的三条建议及责任主体、模型的一句话解释、样本与方法限制、评委可能追问和不能过度声称的结论。该交接包不替代独立的演示文稿或答辩工作流，也不能把探索性结果包装成确定性结论。
+
 ## 规则核验与提交审计
 
 把规则分成三层：
@@ -121,6 +125,8 @@ description: Use when a user has a confirmed topic and needs to design, analyze,
 ## 参考文件
 
 - `references/method-routing.md`：方法路由、输入、诊断和失败条件；
+- `references/text-analysis.md`：文本来源判断、词云、情感、主题和共现工作流；
+- `references/visualization-guide.md`：图表选择、图注和视觉质量审计；
 - `references/quality-gates.md`：研究、调查、模型、结论和提交审计；
 - `references/report-templates.md`：Intake、方案比较、变量字典、结果和建议模板；
 - `tests/pressure-scenarios.md`：压力场景与不得越过的门槛。

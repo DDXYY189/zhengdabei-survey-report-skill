@@ -46,6 +46,7 @@ Copy-Item -Recurse -Force `
 <skill-root>/zhengdabei-survey-report/references/report-templates.md
 <skill-root>/zhengdabei-survey-report/references/text-analysis.md
 <skill-root>/zhengdabei-survey-report/references/visualization-guide.md
+<skill-root>/zhengdabei-survey-report/references/report-production.md
 ```
 
 兼容其他 Agent 运行时时，使用其文档规定的用户 Skill 目录；不要只复制 `SKILL.md`，否则参考文件链接会失效。
@@ -193,6 +194,18 @@ intake
 
 “加强宣传”“提升质量”“扩大投入”这类没有对象、步骤和指标的句子不能作为最终建议。
 
+### 长篇报告和图表交付
+
+如果目标是完整参赛论文，启动时还要提供目标正文页数、版式、附录是否单独计页，以及当前能否生成图表文件。Skill 会先建立篇幅预算，再按章节和研究问题组织正文。最终输出必须包括：
+
+- 报告正文；
+- 篇幅预算与实际分页表；
+- 图表登记表（图号/表号、标题、研究问题、来源、样本量、单位、插入位置）；
+- 图表数据或代码；
+- 正文质量审计。
+
+每个核心研究问题至少绑定一张可追溯的图或表。没有真实数据时，输出空白模板、字段定义和绘图代码骨架，并明确标注“待真实数据填充”；不能用示例数值冒充结果。页数不足时，按证据链补充调查设计、样本结构、交叉分析、模型诊断、稳健性和分主体建议，不能靠重复改写填页。详细规则见 [长篇报告生产指南](skills/zhengdabei-survey-report/references/report-production.md)。
+
 ## 6. 方法选择原则
 
 方法不是越多越好。先确定目标，再看数据和资源，最后选择能够回答问题且可解释的方法。
@@ -258,7 +271,7 @@ AI 可以协助研究设计、代码解释、语言润色和证据整理，但�
 
 ### 参考文件找不到
 
-不要只复制 `SKILL.md`。必须保留同目录下的 `references/method-routing.md`、`quality-gates.md`、`report-templates.md`、`text-analysis.md` 和 `visualization-guide.md`。
+不要只复制 `SKILL.md`。必须保留同目录下的 `references/method-routing.md`、`quality-gates.md`、`report-templates.md`、`text-analysis.md`、`visualization-guide.md` 和 `report-production.md`。
 
 ### Agent 一开始就写完整报告
 
@@ -286,7 +299,8 @@ skills/zhengdabei-survey-report/
     ├── quality-gates.md              # 研究、模型和提交审计
     ├── report-templates.md           # Intake、方案、结果和建议模板
     ├── text-analysis.md              # 条件式文本分析与词云审计
-    └── visualization-guide.md        # 图表选择和可视化审计
+    ├── visualization-guide.md        # 图表选择和可视化审计
+    └── report-production.md          # 篇幅预算和图表交付契约
 
 tests/
 ├── skill_contract.ps1                # 结构契约检查
@@ -329,7 +343,9 @@ PASS: skill contract
 
 ## 11. 版本说明
 
-当前版本：`v1.4.0`。
+当前版本：`v1.5.0`。
+
+- `v1.5.0`：增加长篇报告生产契约、篇幅预算、图表登记表和篇幅/缺图质量闸门；
 
 - `v1.4.0`：增加条件式文本分析与词云流程、图表选择和可视化审计、报告到 PPT/答辩的交接包；
 

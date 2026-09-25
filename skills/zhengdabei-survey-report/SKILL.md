@@ -108,6 +108,8 @@ description: Use when a user has a confirmed topic and needs to design, analyze,
 
 结论使用 `研究问题 + 数据/表图 + 结果 + 限制`；建议使用 `证据 → 责任主体 → 具体动作 → 资源/前提 → 时间 → 衡量指标`。禁止“加强宣传、提高质量、扩大投入”等无对象、无步骤、无指标的空话。
 
+报告写作必须先锁定目标正文页数、版式和图表输出能力，再建立篇幅预算和章节最低字数/页数下限。最终交付不是一段短文，而是“报告正文 + 篇幅预算与实际分页表 + 图表清单/登记表 + 图表数据/代码 + 正文质量审计”。每个核心研究问题至少绑定一个可追溯的表或图；没有真实数据时只能输出待填模板或代码骨架，不能虚构数值或图片。篇幅不足、图表不足、图表无来源或正文不引用图表时，写作状态不能判为 `pass`。完整生产规则见 `references/report-production.md`。
+
 报告通过提交审计后，可按需生成“报告到 PPT/答辩交接包”：提取核心研究问题、最重要的三条发现及证据图表、最重要的三条建议及责任主体、模型的一句话解释、样本与方法限制、评委可能追问和不能过度声称的结论。该交接包不替代独立的演示文稿或答辩工作流，也不能把探索性结果包装成确定性结论。
 
 ## 规则核验与提交审计
@@ -127,6 +129,7 @@ description: Use when a user has a confirmed topic and needs to design, analyze,
 - `references/method-routing.md`：方法路由、输入、诊断和失败条件；
 - `references/text-analysis.md`：文本来源判断、词云、情感、主题和共现工作流；
 - `references/visualization-guide.md`：图表选择、图注和视觉质量审计；
+- `references/report-production.md`：篇幅预算、图表交付契约和长篇报告补救流程；
 - `references/quality-gates.md`：研究、调查、模型、结论和提交审计；
 - `references/report-templates.md`：Intake、方案比较、变量字典、结果和建议模板；
 - `tests/pressure-scenarios.md`：压力场景与不得越过的门槛。

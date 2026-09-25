@@ -21,6 +21,11 @@ Require-Pattern 'seven-dimension audit' '研究选题.*文献研究.*方案设�
 Require-Pattern 'conditional text route' '文本数据.*适合|词云.*不能.*结论|词云.*条件'
 Require-Pattern 'visualization audit' '可视化审计|图表选择|图号'
 Require-Pattern 'handoff contract' '交接包|PPT.*交接|答辩.*交接'
+Require-Pattern 'page budget contract' '篇幅预算|正文页数|字数预算'
+Require-Pattern 'chapter minimums' '章节.*下限|最低字数|章节配额'
+Require-Pattern 'artifact contract' '表格清单|图表清单|图表数据|插入位置'
+Require-Pattern 'insufficient length gate' '篇幅不足|页数不足|扩写而不注水'
+Require-Pattern 'missing visual gate' '图表不足|缺图|图表无来源'
 
 function Require-Readme([string]$label, [string]$pattern) {
   if ($readme -notmatch $pattern) { throw "README MISSING: $label" }
@@ -36,6 +41,7 @@ Require-Readme 'output contract' '输出|建模方案|pass.*conditional.*blocked
 Require-Readme 'conditional text route' '词云.*条件|条件.*词云|词云.*不适用'
 Require-Readme 'visualization audit' '可视化审计|图表选择'
 Require-Readme 'handoff contract' '交接包|PPT.*答辩|答辩.*交接'
+Require-Readme 'long report production' '篇幅预算|字数预算|图表清单|正文页数'
 Require-Readme 'compliance' 'AI|隐私|匿名|地图|查重'
 Require-Readme 'troubleshooting' '排错|常见问题|故障'
 Require-Readme 'versioning' '版本|更新|CHANGELOG'
@@ -46,6 +52,7 @@ foreach ($path in @(
   'skills/zhengdabei-survey-report/references/report-templates.md',
   'skills/zhengdabei-survey-report/references/text-analysis.md',
   'skills/zhengdabei-survey-report/references/visualization-guide.md',
+  'skills/zhengdabei-survey-report/references/report-production.md',
   'tests/pressure-scenarios.md'
 )) {
   if (-not (Test-Path $path)) { throw "MISSING FILE: $path" }
